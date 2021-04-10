@@ -12,6 +12,7 @@
   {
       public:
         circuit_prim();
+        ~circuit_prim()= default;
         //circuit_prim( double etat_circuit, pompe pomp, double pression, double debit, double inertie, double temperature_eau_circuit, double radioactivite, double etat_press, double etat_resist, double etat_echangeur, double temperature_pressuriseur_demande, double temperature_pressuriseur_actuel);
 
         //les fonctions qui recuperent et modifient les variables simples(non objet) de notre classe circuit primaire
@@ -43,7 +44,8 @@
        void equ_T_press_demande(double temp_demande);
        void decrement_increment_pression();
 
-
+       circuit_prim& operator = (const circuit_prim&) = default;
+       
       private:
         pressuriseur pressuriseur;
         double temperature_eau_circuit;
