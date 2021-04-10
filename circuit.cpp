@@ -38,8 +38,7 @@ void circuit::set_etat_circuit( const double valeur_demandee )
 
 void circuit::set_pompe( const pompe pompe_demandee )
 {
-  pompe.set_etat(pompe_demandee.get_etat());
-  pompe.set_regime(pompe_demandee.get_regime());
+  pompe=pompe_demandee;
 }
 
 void circuit::set_pression( const double valeur_demandee )
