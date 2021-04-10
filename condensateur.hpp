@@ -9,6 +9,7 @@ class condensateur:
 	public:
 
 	condensateur();
+	~condensateur()= default;
 	//condensateur(double etat_condensateur,double regime_pompe_condensateur,double debit_nv_condensateur, double diff_chaleur_in_out_condensateur);
 
 	double get_etat() const;
@@ -20,6 +21,8 @@ class condensateur:
 	void set_regime_pompe( const double valeur_demandee);
 	void set_debit_nv_condensateur( const double valeur_demandee);
 	void set_diff_chaleur_in_out_condensateur( const double valeur_demandee);
+
+	condensateur& operator = (const condensateur&) = default;
 
 	private:
 
