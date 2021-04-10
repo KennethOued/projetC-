@@ -25,8 +25,9 @@ class reacteur
       */
 
         reacteur();
-        reacteur( double TXgr, double TGreff, double  TXb, double  TBeff , double  Ecuve, double Rpisc,
-                  double  Episc, double Ebarre, double Ecanaux, double Ebore  )
+        /*reacteur( double TXgr, double TGreff, double  TXb, double  TBeff , double  Ecuve, double Rpisc,
+                  double  Episc, double Ebarre, double Ecanaux, double Ebore  )*/
+        ~reacteur()= default;
 
       /**
      * @brief      Obtenir l'état des barres graphiques.
@@ -133,6 +134,7 @@ class reacteur
          * @return     La valeur effective obtenue
          */
 
+
         void  equ_Ebarre(const circuitprimaire &circuitprim );
 
         void  equ_Ebore(const circuitprimaire &circuitprim);
@@ -156,7 +158,7 @@ class reacteur
 
         void increment_ou_decrement_bore();
 
-
+        reacteut& operator = (const reacteur&) = default;
 
 
 
