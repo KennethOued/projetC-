@@ -28,9 +28,28 @@ double circuit_sec::get_etatgenerateurvapeur() const
 
 double circuit_sec::get_temparaturevapeur() const
 {
-  return temparature_vapeur;
+  return temperature_vapeur;
 }
 
+void circuit_sec::set_etatgenerateurvapeur( const double valeur_demandee )
+{
+  etat_generateur_vapeur=valeur_demandee;
+}
+
+void circuit_sec::set_condensateur( const condensateur condens_demande )
+{
+  condensateur=condens_demande;
+}
+
+void circuit_sec::set_temperaturevapeur( const double valeur_demandee )
+{
+  temperature_vapeur=valeur_demandee;
+}
+
+void circuit_sec::set_debit( const double valeur_demandee )
+{
+  debit=valeur_demandee;
+}
 
 void circuit_sec::equ_etat_circuit()
 {
