@@ -41,11 +41,7 @@ void circuit_prim::set_etat_echangeur( const double valeur_demandee )
 
 void circuit_prim::set_pressuris( const pressuriseur pressuris_demandee )
 {
-  pressuriseur.set_T_press_demande( pressuris_demandee.get_T_press_demande());
-  pressuriseur.set_T_press_actuel( pressuris_demandee.get_T_press_actuel());
-  pressuriseur.set_etat_press( pressuris_demandee.get_etat_press());
-  pressuriseur.set_etat_resistance_press( pressuris_demandee.get_etat_resistance_press());
-
+  pressuriseur=pressuris_demandee;
 }
 void circuit_prim::set_tempeaucircuit( const double valeur_demandee )
 {
