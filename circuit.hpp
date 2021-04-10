@@ -9,6 +9,7 @@ class circuit
 public:
     circuit(): etat_circuit(1), pompe(), pression(1), radioactivite(0), inertie(0)
     {}
+    ~circuit()= default;
 
     double get_etat_circuit() const;
     pompe get_pompe() const;
@@ -21,6 +22,8 @@ public:
     void set_pression( const double valeur_demandee );
     void set_inertie( const double valeur_demandee );
     void set_radioactivite( const double valeur_demandee );
+
+    circuit& operator = (const circuit&) = default;
 
     virtual void equ_etat_circuit();
     virtual void equ_radioactivite( const auto& a, const auto & b );
@@ -37,5 +40,4 @@ protected:
     double radioactivite;
     double inertie;
 };
-
 #endif
