@@ -10,6 +10,7 @@ class pressuriseur:
 	public :
 
 	pressuriseur();
+	~pressuriseur()= default;
 //	pressuriseur(double T_press_demande,double etat_press,double etat_resistance_press,double T_press_actuel);
 	virtual ~pressuriseur();
 
@@ -25,6 +26,7 @@ class pressuriseur:
 	void set_T_press_demande(double valeur_demandee);
 	void set_T_press_actuel(double valeur_demandee);
 
+	pressuriseur& operator = (const pressuriseur&) = default;
 	private:
 
 	double T_press_demande;
