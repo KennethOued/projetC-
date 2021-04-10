@@ -7,16 +7,16 @@
 //oui signifie parametrable par lutilisateur  non signifie non parametrable
 
 centrale::centrale():etat_enceinte(1),pression_enceinte(1),radioactivite(0.00002),etat_centrale(1),
-                     production_centrale(0)
+                     production_centrale(0), circuitprim(), circuitsec(), reacteur()
 {}
-centrale::centrale(double etat_enceinte,double pression_enceinte,double radioactivite,double etat_centrale,
+/*centrale::centrale(double etat_enceinte,double pression_enceinte,double radioactivite,double etat_centrale,
                   double production_centrale):
                                              etat_enceinte(etat_enceinte),pression_enceinte(pression_enceinte),
                                              radioactivite(radioactivite),etat_centrale(etat_centrale),
                                              production_centrale(production_centrale)
 {}
-
-  double centrale:: get_etat_enceinte()const
+*/
+  double centrale::get_etat_enceinte()const
   {
     return etat_enceinte;
   }
@@ -36,6 +36,21 @@ centrale::centrale(double etat_enceinte,double pression_enceinte,double radioact
   double centrale::get_production_centrale()const
   {
     return production_centrale;
+  }
+
+  circuit_prim centrale::get_circuitprim()const
+  {
+    return circuitprim;
+  }
+
+  circuit_sec centrale::get_circuitsec()const
+  {
+    return circuitsec;
+  }
+
+  reacteur centrale::get_reacteur()const
+  {
+    return reacteur;
   }
 
 
@@ -64,6 +79,20 @@ centrale::centrale(double etat_enceinte,double pression_enceinte,double radioact
     production_centrale=valeur_demandee;
   }
 
+  void centrale::set_circuitprim(const circuit_prim circuitprim_demande)
+  {
+    circuitprim= circuitprim_demande;
+  }
+
+  void centrale::set_circuitsec(const circuit_sec circuitsec_demande)
+  {
+    circuitsec=circuitsec_demande;
+  }
+
+  void centrale::set_reacteur(const reacteur reacteur_demande)
+  {
+    reacteur=reacteur_demande;
+  }
 
 
   void centrale::equ_etat_enceinte()
@@ -85,7 +114,7 @@ centrale::centrale(double etat_enceinte,double pression_enceinte,double radioact
   }
 
 
-  void centrale::equ_pression_enceinte(const circuit_prim &circuitprim, const reacteur& reacteur, const circuit_sec &circuitsec)
+  void centrale::equ_pression_enceinte()
   {
     if ( (circuitprim.get_pression()>8 && reacteur.get_Ecuve()<1 && reacteur.get_Episc()<1) ||
          (reacteur.get_Ecuve()<0.3 && reacteur.get_Episc() < 0.4) )
@@ -117,7 +146,7 @@ centrale::centrale(double etat_enceinte,double pression_enceinte,double radioact
    }
 
 
-void centrale::equ_radioactivite_enceinte(const circuit_prim & circuitprim, const reacteur& reacteur)
+void centrale::equ_radioactivite_enceinte()
 {
   std::srand(std::time(nullptr));
   radioactivite = (double) (std::rand())%(100./55) / 100. + 0.00002 + (1-circuitprim.get_etat_circuit())*
@@ -139,7 +168,7 @@ void centrale::equ_radioactivite_enceinte(const circuit_prim & circuitprim, cons
 }
 
 
-void centrale::equ_etat_centrale(const circuit_prim & circuitprim, const reacteur& reacteur, const circuit_sec & circuitsec)
+void centrale::equ_etat_centrale()
 {
   etat_centrale = (reacteur.get_Ecanaux() + 2*reacteur.get_Ebarre() + 8*reacteur.get_Ecuve() +
                 3*reacteur.get_Episc() + circuitprim.get_etat_pompe() + circuitsec.get_etat_pompe() +
@@ -150,7 +179,7 @@ void centrale::equ_etat_centrale(const circuit_prim & circuitprim, const reacteu
 
 }
 
-void centrale::equ_production(const circuit_sec & circuitsec, const circuit_prim & circuitprim)
+void centrale::equ_production()
 {
   if (circuitsec.get_temperature_vapeur()<120 || circuitsec.get_etat_circuit()<0.22 )
   {
