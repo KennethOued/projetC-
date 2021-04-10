@@ -12,7 +12,7 @@
   {
       public:
         circuit_sec();
-
+        ~circuit_sec()= default;
         //les fonctions qui recuperent et modifient les variables simples(non objet) de notre classe circuit secondaire
 
         double get_etat_generateur_vapeur() const;
@@ -36,7 +36,7 @@
         void equ_debitniveaucondensateur();
         void equ_difentresortichaleur();
 
-
+        circuit_sec& operator = (const circuit_sec&) = default;
 
       private:
         double etat_generateur_vapeur;
