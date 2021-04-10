@@ -17,6 +17,7 @@ class pompe
      * L'état initial de la pompe vaut 1. et son rendement est à zéro.
      */
     pompe();
+    ~pompe()= default;
 
     /**
      * @brief      Permet d'ajuster le rendement de la pompe
@@ -43,6 +44,8 @@ class pompe
     double get_etat() const;
     double get_regime() const;
 
+    pompe& operator = (const pompe&) = default;
+    
   private:
     /** Rendement de la pompe */
     double regime;
