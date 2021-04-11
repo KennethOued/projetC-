@@ -42,7 +42,7 @@ void display_and_run(sdl2::window fenêtre)
 	double t_1 = circuitprimaire.get_tempeaucircuit();
 	std::string temperature_1 = std::to_string(t_1);
 	circuit circuit_1 = circuitprimaire.get_circuit();
-	double d_1 = circuit_1.get_debit_eau();
+	double d_1 = circuit_1.get_debit();
 	std::string debit_1 = std::to_string(d_1);
 	double p_1 = circuit_1.get_pression();
 	std::string pression_1 = std::to_string(p_1);
@@ -61,7 +61,7 @@ void display_and_run(sdl2::window fenêtre)
 	std::string debit_2 = std::to_string(d_2);
 	double p_2 = circuit_2.get_pression();
 	std::string pression_2 = std::to_string(p_2);
-	double rd_2 = circuit_2.get_radioactivie();
+	double rd_2 = circuit_2.get_radioactivite();
 	std::string radioactivite_2 = std::to_string(rd_2);
 
 	//Pour le systeme de refroidissement
