@@ -18,66 +18,66 @@ salleDeControle::salleDeControle() : centrale()
 
 void display_and_run(sdl2::window fenêtre)
 {
-	double prod = central.get_production_centrale(); // production electrique
-	std::string prod_electrique = std::to_string(prod); //double en string
- 	
- 	//le taux de bore dans la piscine
-	reacteur react = centrale.get_reacteur();
-	double taux_b = react.get_taux_bore_actuel();
-	std::string taux_bore = std::to_string(taux_b);
+    double prod = central.get_production_centrale(); // production electrique
+    std::string prod_electrique = std::to_string(prod); //double en string
+    
+    //le taux de bore dans la piscine
+    reacteur react = centrale.get_reacteur();
+    double taux_b = react.get_taux_bore_actuel();
+    std::string taux_bore = std::to_string(taux_b);
 
-	//la pression de confinement
-	double pression = central.get_pression_enceinte();
-	std::string pression_enceinte = std::to_string(pression);
+    //la pression de confinement
+    double pression = central.get_pression_enceinte();
+    std::string pression_enceinte = std::to_string(pression);
 
-	//la pression subit par l’enceinte de confinement
-	double etat_b = react.get_etat_barre();
-	std::string etat_barre = std::to_string(etat_b);
+    //la pression subit par l’enceinte de confinement
+    double etat_b = react.get_etat_barre();
+    std::string etat_barre = std::to_string(etat_b);
 
-	//Pour le circuit primaire
-	circuit_prim cuicuitprimaire = central.get_circuit_prim();
-	pompe pompe1 = circuitprimaire.get_pompe();
-	double r_1 = pompe1.get_regime();
-	std::string rendement_1 = std::to_string(r_1);
-	double t_1 = circuitprimaire.get_tempeaucircuit();
-	std::string temperature_1 = std::to_string(t_1);
-	circuit circuit_1 = circuitprimaire.get_circuit();
-	double d_1 = circuit_1.get_debit();
-	std::string debit_1 = std::to_string(d_1);
-	double p_1 = circuit_1.get_pression();
-	std::string pression_1 = std::to_string(p_1);
-	double rd_1 = circuit_1.get_radioactivie();
-	std::string radioactivite_1 = std::to_string(rd_1);
+    //Pour le circuit primaire
+    circuit_prim cuicuitprimaire = central.get_circuit_prim();
+    pompe pompe1 = circuitprimaire.get_pompe();
+    double r_1 = pompe1.get_regime();
+    std::string rendement_1 = std::to_string(r_1);
+    double t_1 = circuitprimaire.get_tempeaucircuit();
+    std::string temperature_1 = std::to_string(t_1);
+    circuit circuit_1 = circuitprimaire.get_circuit();
+    double d_1 = circuit_1.get_debit();
+    std::string debit_1 = std::to_string(d_1);
+    double p_1 = circuit_1.get_pression();
+    std::string pression_1 = std::to_string(p_1);
+    double rd_1 = circuit_1.get_radioactivie();
+    std::string radioactivite_1 = std::to_string(rd_1);
 
-	//Pour le circuit secondaire
-	circuit_sec cuicuitsecondaire = central.get_circuit_sec();
-	pompe pompe2 = circuitsecondaire.get_pompe();
-	double r_2 = pompe2.get_regime();
-	std::string rendement_2 = std::to_string(r_2);
-	double t_2 = circuitsecondaire.get_tempeaucircuit();
-	std::string temperature_2 = std::to_string(t_2);
-	circuit circuit_2 = circuitsecondaire.get_circuit();
-	double d_2 = circuit_2.get_debit_eau();
-	std::string debit_2 = std::to_string(d_2);
-	double p_2 = circuit_2.get_pression();
-	std::string pression_2 = std::to_string(p_2);
-	double rd_2 = circuit_2.get_radioactivite();
-	std::string radioactivite_2 = std::to_string(rd_2);
+    //Pour le circuit secondaire
+    circuit_sec cuicuitsecondaire = central.get_circuit_sec();
+    pompe pompe2 = circuitsecondaire.get_pompe();
+    double r_2 = pompe2.get_regime();
+    std::string rendement_2 = std::to_string(r_2);
+    double t_2 = circuitsecondaire.get_tempeaucircuit();
+    std::string temperature_2 = std::to_string(t_2);
+    circuit circuit_2 = circuitsecondaire.get_circuit();
+    double d_2 = circuit_2.get_debit_eau();
+    std::string debit_2 = std::to_string(d_2);
+    double p_2 = circuit_2.get_pression();
+    std::string pression_2 = std::to_string(p_2);
+    double rd_2 = circuit_2.get_radioactivite();
+    std::string radioactivite_2 = std::to_string(rd_2);
 
-	//Pour le systeme de refroidissement
-	condensateur condensateur = circuitsecondaire.get_condensateur();
-	pompe pompe_c = condensateur.get_pompe();
-	double r_c = pompe_c.get_regime();
-	std::string rendement_c = std::to_string(r_c);
-	double d_c = condensateur.get_debit_nv_condensateur();
-	std::string debit_c = std::to_string(d_c);
-	double t_vap = circuitsecondaire.get_temp_vap();
-	double t_eau = circuitprimaire.get_tempeaucircuit();
-	std::string t_diff = std::to_string(t_vap - t_eau);
+    //Pour le systeme de refroidissement
+    condensateur condensateur = circuitsecondaire.get_condensateur();
+    pompe pompe_c = condensateur.get_pompe();
+    double r_c = pompe_c.get_regime();
+    std::string rendement_c = std::to_string(r_c);
+    double d_c = condensateur.get_debit_nv_condensateur();
+    std::string debit_c = std::to_string(d_c);
+    double t_vap = circuitsecondaire.get_temp_vap();
+    double t_eau = circuitprimaire.get_tempeaucircuit();
+    std::string t_diff = std::to_string(t_vap - t_eau);
 
 
 
-	sdl2::font fonte_titre("./data/Lato-Bold.ttf", 28);
+    sdl2::font fonte_titre("./data/Lato-Bold.ttf", 28);
     // Pour choisir une fonte courante pour afficher du texte (pas encore mis en oeuvre pour l'affichage du texte)
     sdl2::font fonte_texte("./data/Lato-Thin.ttf", 18);
 
@@ -241,63 +241,63 @@ void display_and_run(sdl2::window fenêtre)
 //Rendement de la pompe du circuit primaire
 void action_touche_1(sdl2::window fenêtre){
 
-	circuit_prim circuitprimaire = centrale.get_circuit_prim();
-	pompe pome_1 = circuitprimaire.get_pompe();
-	double r_p = pompe_1.get_regime();
-	std::string regime_p = std::to_string(r_p)
+    circuit_prim circuitprimaire = centrale.get_circuit_prim();
+    pompe pome_1 = circuitprimaire.get_pompe();
+    double r_p = pompe_1.get_regime();
+    std::string regime_p = std::to_string(r_p)
 
-	sdl2::font fonte_titre("./data/Lato-Bold.ttf", 28);
+    sdl2::font fonte_titre("./data/Lato-Bold.ttf", 28);
     // Pour choisir une fonte courante pour afficher du texte (pas encore mis en oeuvre pour l'affichage du texte)
     sdl2::font fonte_texte("./data/Lato-Thin.ttf", 18);
 
-	bool quitting = false;
+    bool quitting = false;
     sdl2::event_queue queue;
     auto events = queue.pull_events();
 
     while (not quitting)
     {
-    	fenêtre << sdl2::rectangle({570,510}, {500,150}, {0xFF,0xFF,0xFF,0xFF}, true);
-    	sdl2::texte phrase("Rendement pompe du circuit primaire :", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
-    	phrase.at(580,520);
+        fenêtre << sdl2::rectangle({570,510}, {500,150}, {0xFF,0xFF,0xFF,0xFF}, true);
+        sdl2::texte phrase("Rendement pompe du circuit primaire :", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
+        phrase.at(580,520);
 
-    	sdl2::texte rendement(regime_p, fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
-    	rendement.at(590,550);
+        sdl2::texte rendement(regime_p, fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
+        rendement.at(590,550);
 
     // Charge une image fleche
-    	sdl2::image fleche("data/fleche_haut_bas.png", fenêtre);
-    	fleche.at(610,550);
+        sdl2::image fleche("data/fleche_haut_bas.png", fenêtre);
+        fleche.at(610,550);
 
-    	sdl2::texte phrase("Q pour fermer", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
-    	phrase.at(580,640);
+        sdl2::texte phrase("Q pour fermer", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
+        phrase.at(580,640);
 
-    	fenêtre << phrase << rendement << fleche
+        fenêtre << phrase << rendement << fleche
             << sdl2::flush;
-    	for ( const auto& e : events)
-    	{
-    		if (e->kind_of_event() == sdl2::event::key)
-    		{
-    			auto& key_ev = dynamic_cast<sdl2::event_keyboard&>(*e);
-    			if (key_ev.type_of_event() == sdl2::event::key_down)
-    			{
-                	switch(key_ev.code())
-                	{
-                		case sdl2::event_keyboard::pagedown:
-                		circuitprimaire.equ_regimepompe(-0.01);
-                		break;
-                		case sdl2::event_keyboard::pageup:
-                		circuitprimaire.equ_regimepompe(0.01);
-                		break;
-                		default:
+        for ( const auto& e : events)
+        {
+            if (e->kind_of_event() == sdl2::event::key)
+            {
+                auto& key_ev = dynamic_cast<sdl2::event_keyboard&>(*e);
+                if (key_ev.type_of_event() == sdl2::event::key_down)
+                {
+                    switch(key_ev.code())
+                    {
+                        case sdl2::event_keyboard::pagedown:
+                        circuitprimaire.equ_regimepompe(-0.01);
+                        break;
+                        case sdl2::event_keyboard::pageup:
+                        circuitprimaire.equ_regimepompe(0.01);
+                        break;
+                        default:
                         if (key_ev.ascci_code() == 'q')
                         {
                             quitting = true;
                         }
-                	}
+                    }
 
-    			}
-    		}
-    	}
-	}
+                }
+            }
+        }
+    }
 
 
 
@@ -305,63 +305,63 @@ void action_touche_1(sdl2::window fenêtre){
 // Rendement de la pompe du circuit secondaire
 void action_touche_2(sdl2::window fenêtre){
 
-	circuit_sec circuitsecondaire = centrale.get_circuit_prim();
-	pompe pome_2 = circuitsecondaire.get_pompe();
-	double r_p = pompe_2.get_regime();
-	std::string regime_p = std::to_string(r_p)
+    circuit_sec circuitsecondaire = centrale.get_circuit_prim();
+    pompe pome_2 = circuitsecondaire.get_pompe();
+    double r_p = pompe_2.get_regime();
+    std::string regime_p = std::to_string(r_p)
 
-	sdl2::font fonte_titre("./data/Lato-Bold.ttf", 28);
+    sdl2::font fonte_titre("./data/Lato-Bold.ttf", 28);
     // Pour choisir une fonte courante pour afficher du texte (pas encore mis en oeuvre pour l'affichage du texte)
     sdl2::font fonte_texte("./data/Lato-Thin.ttf", 18);
 
-	bool quitting = false;
+    bool quitting = false;
     sdl2::event_queue queue;
     auto events = queue.pull_events();
 
     while (not quitting)
     {
-    	fenêtre << sdl2::rectangle({570,510}, {500,150}, {0xFF,0xFF,0xFF,0xFF}, true);
-    	sdl2::texte phrase("Rendement pompe du circuit secondaire :", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
-    	phrase.at(580,520);
+        fenêtre << sdl2::rectangle({570,510}, {500,150}, {0xFF,0xFF,0xFF,0xFF}, true);
+        sdl2::texte phrase("Rendement pompe du circuit secondaire :", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
+        phrase.at(580,520);
 
-    	sdl2::texte rendement(regime_p, fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
-    	rendement.at(590,550);
+        sdl2::texte rendement(regime_p, fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
+        rendement.at(590,550);
 
     // Charge une image fleche
-    	sdl2::image fleche("data/fleche_haut_bas.png", fenêtre);
-    	fleche.at(610,550);
+        sdl2::image fleche("data/fleche_haut_bas.png", fenêtre);
+        fleche.at(610,550);
 
-    	sdl2::texte phrase("Q pour fermer", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
-    	phrase.at(580,640);
+        sdl2::texte phrase("Q pour fermer", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
+        phrase.at(580,640);
 
-    	fenêtre << phrase << rendement << fleche
+        fenêtre << phrase << rendement << fleche
             << sdl2::flush;
-    	for ( const auto& e : events)
-    	{
-    		if (e->kind_of_event() == sdl2::event::key)
-    		{
-    			auto& key_ev = dynamic_cast<sdl2::event_keyboard&>(*e);
-    			if (key_ev.type_of_event() == sdl2::event::key_down)
-    			{
-                	switch(key_ev.code())
-                	{
-                		case sdl2::event_keyboard::pagedown:
-                		circuitsecondaire.equ_regimepompe(-0.01);
-                		break;
-                		case sdl2::event_keyboard::pageup:
-                		circuitsecondaire.equ_regimepompe(0.01);
-                		break;
-                		default:
+        for ( const auto& e : events)
+        {
+            if (e->kind_of_event() == sdl2::event::key)
+            {
+                auto& key_ev = dynamic_cast<sdl2::event_keyboard&>(*e);
+                if (key_ev.type_of_event() == sdl2::event::key_down)
+                {
+                    switch(key_ev.code())
+                    {
+                        case sdl2::event_keyboard::pagedown:
+                        circuitsecondaire.equ_regimepompe(-0.01);
+                        break;
+                        case sdl2::event_keyboard::pageup:
+                        circuitsecondaire.equ_regimepompe(0.01);
+                        break;
+                        default:
                         if (key_ev.ascci_code() == 'q')
                         {
                             quitting = true;
                         }
-                	}
+                    }
 
-    			}
-    		}
-    	}
-	}
+                }
+            }
+        }
+    }
 
 
 
@@ -370,64 +370,64 @@ void action_touche_2(sdl2::window fenêtre){
 // Action sur rendement pompe condensateur
 void action_touche_R(sdl2::window fenêtre){
 
-	circuit_sec circuitsecondaire = centrale.get_circuit_prim();
-	condensateur condens = circuitsecondaire.get_condensateur();
-	pompe pompe_c = condens.get_pompe();
-	double r_p = pompe_c.get_regime();
-	std::string regime_p = std::to_string(r_p)
+    circuit_sec circuitsecondaire = centrale.get_circuit_prim();
+    condensateur condens = circuitsecondaire.get_condensateur();
+    pompe pompe_c = condens.get_pompe();
+    double r_p = pompe_c.get_regime();
+    std::string regime_p = std::to_string(r_p)
 
-	sdl2::font fonte_titre("./data/Lato-Bold.ttf", 28);
+    sdl2::font fonte_titre("./data/Lato-Bold.ttf", 28);
     // Pour choisir une fonte courante pour afficher du texte (pas encore mis en oeuvre pour l'affichage du texte)
     sdl2::font fonte_texte("./data/Lato-Thin.ttf", 18);
 
-	bool quitting = false;
+    bool quitting = false;
     sdl2::event_queue queue;
     auto events = queue.pull_events();
 
     while (not quitting)
     {
-    	fenêtre << sdl2::rectangle({570,510}, {500,150}, {0xFF,0xFF,0xFF,0xFF}, true);
-    	sdl2::texte phrase("Rendement pompe du condensateur :", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
-    	phrase.at(580,520);
+        fenêtre << sdl2::rectangle({570,510}, {500,150}, {0xFF,0xFF,0xFF,0xFF}, true);
+        sdl2::texte phrase("Rendement pompe du condensateur :", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
+        phrase.at(580,520);
 
-    	sdl2::texte rendement(regime_p, fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
-    	rendement.at(590,550);
+        sdl2::texte rendement(regime_p, fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
+        rendement.at(590,550);
 
     // Charge une image fleche
-    	sdl2::image fleche("data/fleche_haut_bas.png", fenêtre);
-    	fleche.at(610,550);
+        sdl2::image fleche("data/fleche_haut_bas.png", fenêtre);
+        fleche.at(610,550);
 
-    	sdl2::texte phrase("Q pour fermer", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
-    	phrase.at(580,640);
+        sdl2::texte phrase("Q pour fermer", fonte_texte, fenêtre, {0x00,0xFF,0xFF,0xFF});
+        phrase.at(580,640);
 
-    	fenêtre << phrase << rendement << fleche
+        fenêtre << phrase << rendement << fleche
             << sdl2::flush;
-    	for ( const auto& e : events)
-    	{
-    		if (e->kind_of_event() == sdl2::event::key)
-    		{
-    			auto& key_ev = dynamic_cast<sdl2::event_keyboard&>(*e);
-    			if (key_ev.type_of_event() == sdl2::event::key_down)
-    			{
-                	switch(key_ev.code())
-                	{
-                		case sdl2::event_keyboard::pagedown:
-                			condens.set_regime_pompe(-0.01);
-                		break;
-                		case sdl2::event_keyboard::pageup:
-                			condens.set_regime_pompe(0.01);
-                		break;
-                		default:
+        for ( const auto& e : events)
+        {
+            if (e->kind_of_event() == sdl2::event::key)
+            {
+                auto& key_ev = dynamic_cast<sdl2::event_keyboard&>(*e);
+                if (key_ev.type_of_event() == sdl2::event::key_down)
+                {
+                    switch(key_ev.code())
+                    {
+                        case sdl2::event_keyboard::pagedown:
+                            condens.set_regime_pompe(-0.01);
+                        break;
+                        case sdl2::event_keyboard::pageup:
+                            condens.set_regime_pompe(0.01);
+                        break;
+                        default:
                         if (key_ev.ascci_code() == 'q')
                         {
                             quitting = true;
                         }
-                	}
+                    }
 
-    			}
-    		}
-    	}
-	}
+                }
+            }
+        }
+    }
 
 
 
@@ -438,11 +438,10 @@ void action_touche_R(sdl2::window fenêtre){
 
 void action_touche_Tab(sdl2::window fenêtre){
 
-	sdl2::image cent("data/reacteur_eau_pressurisee_zoom.jpg", fenêtre);
-    	cent.at(50,30);
+    sdl2::image cent("data/reacteur_eau_pressurisee_zoom.jpg", fenêtre);
+        cent.at(50,30);
 
-    	
-    	fenêtre  << cent
+        
+        fenêtre  << cent
             << sdl2::flush;
 }
-
