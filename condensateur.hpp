@@ -26,7 +26,7 @@ class condensateur:
 
 	private:
 
-	double etat:
+	double etat;
 	double regime_pompe;
 	double debit_nv_condensateur;
 	double diff_chaleur_in_out_condensateur;
