@@ -13,8 +13,8 @@ class ouvrier
 		void set_dispo(const int dispo);
 
 	protected:
-		int etat;
-		int dispo;
+		int etat;  // 1 pour bonne santé et 0 pour malade
+		int dispo; // 1 pour dispo et 0 pour indispo
 
 };
 
